@@ -25,7 +25,7 @@ $app->get('/', function() use($app) {
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   $book = $app->request('GET', 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789');
-  return $app['twig']->render('books.twig', array('book' => $book ));
+  return $app['twig']->render('books.twig', array('book' => $book));
 });
 
 $app->get('/cowsay', function() use($app) {
