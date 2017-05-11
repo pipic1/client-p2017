@@ -56,7 +56,7 @@ public function apiAction($type, $query){
 
 public function getBook($isbn)
 {
-  $apiQueryString = '/book/' . '?isbn=' . $isbn;
+  $apiQueryString = '/book' . '?isbn=' . $isbn;
   $requestedResults = ($this->curlRestRequest($apiQueryString, TRUE));
   $view = $this->renderAPIResults($requestedResults, TRUE, 'ApiBundle:API:results.json.twig');
   return $view;
