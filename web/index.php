@@ -5,7 +5,6 @@ require('../vendor/autoload.php');
 $app = new Silex\Application();
 $app['debug'] = true;
 
-
 // Register the monolog logging service
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
   'monolog.logfile' => 'php://stderr',
@@ -24,6 +23,9 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/books', function() use($app) {
+  $app['monolog']->addDebug('logging output.');
+  $book = $app->request('GET', 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789');
+  var_dump($book);
   return $app['twig']->render('books.twig');
 });
 
