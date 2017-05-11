@@ -1,6 +1,7 @@
 <?php
 
 require('../vendor/autoload.php');
+require('./WebServiceController.php');
 
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -24,7 +25,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  echo 'console.log('. json_encode( $app ) .')';
+  echo var_dump($app);
   $resp = $this->getBook(123456789);
   return $app['twig']->render('books.twig');
 });
