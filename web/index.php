@@ -24,7 +24,6 @@ $app->get('/', function() use($app) {
 
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  $book = $app->request('GET', 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789');
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL,"https://shopping-service-p2017.herokuapp.com/book");
   curl_setopt($ch, CURLOPT_POST, 1);
