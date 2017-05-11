@@ -24,17 +24,8 @@ $app->get('/', function() use($app) {
 
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL,"https://shopping-service-p2017.herokuapp.com/book&isbn=123456789");
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  $server_output = curl_exec ($ch);
-  $book = $server_output;
-  curl_close ($ch);
-  if ($server_output == "OK") {
-    return $app['twig']->render('books.twig');
-  } else {
-   return $app['twig']->render('error.twig');
-  }
+  $resp = $this->getBook(123456789);
+  return $app['twig']->render('books.twig');
 });
 
 $app->get('/cowsay', function() use($app) {
