@@ -25,7 +25,22 @@ $app->get('/', function() use($app) {
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   $book = $app->request('GET', 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789');
-  return $app['twig']->render('books.twig');
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL,"https://shopping-service-p2017.herokuapp.com/book");
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS,"isbn=123456789");
+  curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, 'GET');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $server_output = curl_exec ($ch);
+
+  curl_close ($ch);
+  $book = $server_output
+  // further processing ....
+  if ($server_output == "OK") {
+    return $app['twig']->render('books.twig');
+  } else {
+   return $app['twig']->render('error.twig');
+  }
 });
 
 $app->get('/cowsay', function() use($app) {
