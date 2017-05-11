@@ -33,7 +33,7 @@ $app->get('/books', function() use($app) {
   $server_output = curl_exec ($ch);
 
   curl_close ($ch);
-  $book = $server_output
+  $book = $server_output;
   // further processing ....
   if ($server_output == "OK") {
     return $app['twig']->render('books.twig');
