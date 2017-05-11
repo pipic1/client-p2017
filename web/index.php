@@ -24,8 +24,8 @@ $app->get('/', function() use($app) {
 
 $app->get('/books', function() use($app) {
   $app['monolog']->addDebug('logging output.');
+  echo 'console.log('. json_encode( $app ) .')';
   $resp = $this->getBook(123456789);
-  echo 'console.log('. json_encode( $resp ) .')';
   return $app['twig']->render('books.twig');
 });
 
