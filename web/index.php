@@ -29,12 +29,12 @@ $app->get('/book', function() use($app) {
   $result=curl_exec($ch);
   curl_close($ch);
   var_dump(json_decode($request, true));
-  return $app['twig']->render('books.twig',array('book' => $result ));
+  return $app['twig']->render('book.twig',array('book' => $result ));
 });
 
 $app->get('/book/{isbn}', function($isbn) use($app) {
   $app['monolog']->addDebug('logging output.');
-  $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789';
+  $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.isbn;
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -42,7 +42,7 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   $result=curl_exec($ch);
   curl_close($ch);
   var_dump(json_decode($isbn, true));
-  return $app['twig']->render('books.twig',array('book' => $result ));
+  return $app['twig']->render('book.twig',array('book' => $result ));
 });
 
 $app->get('/cowsay', function() use($app) {
