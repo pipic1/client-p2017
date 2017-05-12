@@ -18,13 +18,13 @@
       </tr>
     </thead>
     <tbody>
+      {% for key,value in books %}
       <tr>
-        {% for key,value in books %}
         <td>{{ value.bookName }}</td>
         <td>{{ value.isbn }}</td>
         <td>{{ value.stock }}@example.com</td>
-        {% endfor %}
       </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
