@@ -28,7 +28,7 @@ $app->get('/book', function() use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
-  return $app['twig']->render('book.twig',array('book' => $result ));
+  return $app['twig']->render('book.twig',array('book' => json_decode($result) ));
 });
 
 $app->get('/book/{isbn}', function($isbn) use($app) {
@@ -51,7 +51,7 @@ $app->get('/books', function() use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
-  return $app['twig']->render('books.twig',array('books' => $result ));
+  return $app['twig']->render('books.twig',array('book' => json_decode($result) ));
 });
 
 $app->get('/cowsay', function() use($app) {

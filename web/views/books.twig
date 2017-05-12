@@ -3,15 +3,17 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="container">
-    <h1>{{ book.bookName }}</h1>
-    <p>ISBN : {{ book.isbn }}</p>
-    <p>Stock : {{ book.stock }}</p>
+    <h1>All books are diplayed here.</h1>
+    <p>books</p>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/pipic1/booking-service-p2017"><span class="glyphicon glyphicon-download"></span> BookingService on GitHub</a>
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    {{ dump(book) }}
-  </div>
+  <ul>
+  {% for key,value in array_path %}
+      <li>Key : {{ key }}Value : {{ value }}</li>
+  {% endfor %}
+  </ul>
 </div>
+
 {% endblock %}
