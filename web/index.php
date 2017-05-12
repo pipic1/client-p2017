@@ -19,7 +19,7 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
-$app->get('/book', function() use($app) {
+$app->get('/book_sample', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789'; // sample
   $ch = curl_init();
@@ -40,6 +40,9 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
+  if (!$result) {
+    return $app['twig']->render('error.twig');
+  }
   return $app['twig']->render('book.twig',array('book' => json_decode($result) ));
 });
 

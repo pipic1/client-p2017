@@ -9,11 +9,24 @@
   </div>
 </div>
 <div class="container">
-  <ul>
-  {% for key,value in books %}
-      <li>Key : {{ key }}Value : {{ value.bookName }}</li>
-  {% endfor %}
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>ISBN</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for key,value in books %}
+        <td>{{ value.bookName }}</td>
+        <td>{{ value.isbn }}</td>
+        <td>{{ value.stock }}@example.com</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 {% endblock %}
