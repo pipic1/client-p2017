@@ -21,7 +21,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/book', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789';
+  $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn=123456789'; // sample
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
