@@ -41,7 +41,6 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
-  var_dump(json_decode($result, true));
   return $app['twig']->render('book.twig',array('book' => $result ));
 });
 
