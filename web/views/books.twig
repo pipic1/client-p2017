@@ -4,7 +4,6 @@
 <div class="jumbotron text-center">
   <div class="container">
     <h1>All books are diplayed here.</h1>
-    <p>{{dump(books)}}</p>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/pipic1/booking-service-p2017"><span class="glyphicon glyphicon-download"></span> BookingService on GitHub</a>
   </div>
 </div>
@@ -20,7 +19,7 @@
     <tbody>
       {% for key,value in books %}
       <tr>
-        <td>{{ value.bookName }}</td>
+        <td><a href="/book/{{ value.isbn }}">{{ value.bookName }}</a></td>
         <td>{{ value.isbn }}</td>
         <td>{{ value.stock }}@example.com</td>
       </tr>
