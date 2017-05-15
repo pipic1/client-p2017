@@ -39,11 +39,9 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
+  $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   curl_close($ch);
   $result=json_decode($result);
-  $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-  var_dump($httpcode);
-  die;
   if ($httpcode === 404) {
     return $app['twig']->render('error.twig',array('message' =>  $result));
   }
