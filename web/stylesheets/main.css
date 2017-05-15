@@ -6,9 +6,11 @@
 .jumbotron .btn-primary {
   background: rgba(0,0,0,0.3);
   border-color: rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  transition: .25s all ease-in;
 }
 .jumbotron .btn-primary:hover {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,255,0,0.6);
 }
 .jumbotron p {
   color: #d9ccee;
@@ -21,7 +23,7 @@
 .navbar + .jumbotron {
   margin-top: -20px;
 }
-.jumbotron .lang-logo {
+.jumbotron .lang-logo  {
   display: block;
   background: #B01302;
   border-radius: 50%;
@@ -44,6 +46,6 @@
 .field_form_ppap{
   padding: 5px;
 }
-.green{
+.jumbotron .btn-primary .green{
   background-color: rgba(0,255,0,0.3);
 }
