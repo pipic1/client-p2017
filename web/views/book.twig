@@ -7,7 +7,6 @@
     <p>ISBN : {{ book.data.isbn }}</p>
     <p>Stock : {{ book.data.stock }}</p>
     <form action="/buybook" method="post">
-      <input hidden type="isbn">{{ book.data.isbn }}</input>
       <div class="field_form_ppap">
         <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
       </div>
