@@ -34,3 +34,10 @@
 .jumbotron .lang-logo img {
   max-width: 100%;
 }
+.input-number-ppap {
+    padding: 12px 25px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6) inset;
+}
