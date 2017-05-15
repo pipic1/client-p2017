@@ -40,10 +40,12 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
-  if (!$result) {
-    return $app['twig']->render('error.twig');
+  $result=json_decode($result);
+  $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  if ($httpcode === 404) {
+    return $app['twig']->render('error.twig',array('message' => , $result));
   }
-  return $app['twig']->render('book.twig',array('book' => json_decode($result) ));
+  return $app['twig']->render('book.twig',array('book' => $result));
 });
 
 $app->get('/books', function() use($app) {
