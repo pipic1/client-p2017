@@ -43,7 +43,7 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   $result=json_decode($result);
   $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   if ($httpcode === 404) {
-    return $app['twig']->render('error.twig',array('message' => , $result));
+    return $app['twig']->render('error.twig',array('message' =>  $result));
   }
   return $app['twig']->render('book.twig',array('book' => $result));
 });
