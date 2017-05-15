@@ -3,8 +3,8 @@
 use Silex\Provider\FormServiceProvider;
 require('../vendor/autoload.php');
 
-$app->register(new FormServiceProvider());
 $app = new Silex\Application();
+$app->register(new FormServiceProvider());
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
