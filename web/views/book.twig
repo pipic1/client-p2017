@@ -6,12 +6,16 @@
     <h1>{{ book.data.bookName }}</h1>
     <p>ISBN : {{ book.data.isbn }}</p>
     <p>Stock : {{ book.data.stock }}</p>
-    <div class="field_form_ppap">
-      <input type="number" class="input-number-ppap" pattern="[0-9]*">
-    </div>
-    <div class="field_form_ppap">
-      <a type="button" class="btn btn-lg btn-primary green" href=""><span class="glyphicon glyphicons-cart-tick"></span>Acheter ce livre</a>
-    </div>
+    <form action="/buybook" method="post">
+      <input hidden type="isbn">{{ book.data.isbn }}</input>
+      <div class="field_form_ppap">
+        <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
+      </div>
+      <div class="field_form_ppap">
+        <a type="button" class="btn btn-lg btn-primary green" href=""><span class="glyphicon glyphicons-cart-tick"></span>Acheter ce livre</a>
+      </div>
+      <input type="submit" name="submit" />
+    </form>
   </div>
 </div>
 {% endblock %}
