@@ -60,12 +60,13 @@ $app->get('/books', function() use($app) {
 });
 
 $app->post('/buybook', function() use($app) {
-  $post = array(
+  $this->get('/buybook')->request->get('name');
+  /*$post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
-  );
-  var_dump($post);
-  return "<pre>".$post.$app."</pre>";
+  );*/
+  var_dump($this->get('/buybook')->request->get('name'););
+  return "<pre>".$app."</pre>";
 });
 
 $app->get('/cowsay', function() use($app) {
