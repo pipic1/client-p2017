@@ -61,10 +61,10 @@ $app->get('/books', function() use($app) {
 
 $app->post('/buybook', function(Request $request) use($app) {
   $post = array(
-    'isbn' => $request->request->get('isbn'),
-    'quantity'  => $request->request->get('quantity'),
+    'isbn' => $app->request->get('isbn'),
+    'quantity'  => $app->request->get('quantity'),
   );
-  $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
+  return $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
 });
 
 $app->get('/cowsay', function() use($app) {
