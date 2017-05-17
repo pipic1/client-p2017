@@ -60,7 +60,7 @@ $app->get('/books', function() use($app) {
 });
 
 $app->post('/buybook', function() use($app) {
-  var_dump($app);
+  var_dump($app["request"]);
   /*$post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
