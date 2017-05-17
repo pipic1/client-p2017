@@ -1,8 +1,11 @@
 <?php
 
 require('../vendor/autoload.php');
+use Silex\Provider\FormServiceProvider;
 
 $app = new Silex\Application();
+
+$app->register(new FormServiceProvider());
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
