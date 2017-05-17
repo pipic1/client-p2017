@@ -64,7 +64,7 @@ $app->post('/buybook', function(Request $request) use($app) {
     'isbn' => $request->request->get('isbn'),
     'quantity'  => $request->request->get('quantity'),
   );
-  return $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
+  $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
 });
 
 $app->get('/cowsay', function() use($app) {
