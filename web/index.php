@@ -4,11 +4,7 @@ require('../vendor/autoload.php');
 use Silex\Provider\FormServiceProvider;
 
 $app = new Silex\Application();
-<<<<<<< HEAD
-=======
 
-$app->register(new FormServiceProvider());
->>>>>>> parent of 15004e1... destor
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
@@ -65,16 +61,16 @@ $app->get('/books', function() use($app) {
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
 
-$app->post('/buybook', function() use($app) {
+/*$app->post('/buybook', function() use($app) {
   $app->get('/buybook')->request->get('name');
-  /*$post = array(
+  $post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
-  );*/
+  );
   var_dump($app->get('/buybook')->request->get('name'););
   return "<pre>".$app."</pre>";
 });
-
+*/
 $app->get('/cowsay', function() use($app) {
   $app['monolog']->addDebug('cowsay');
   return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
