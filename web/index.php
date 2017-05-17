@@ -63,7 +63,7 @@ $app->get('/books', function() use($app) {
   curl_close($ch);
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
-
+/*
 $app->match('/form', function (Request $request) use ($app) {
     // some default data for when the form is displayed the first time
     $data = array(
@@ -91,17 +91,13 @@ $app->match('/form', function (Request $request) use ($app) {
 
     // display the form
     return $app['twig']->render('form.twig', array('form' => $form->createView()));
+});*/
+$app->post('/buy', function(Request $request) use($app) {
+  $test = $request->get('isbn');
+  var_dump($test);
+  return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
-/*$app->post('/buybook', function() use($app) {
-  $app->get('/buybook')->request->get('name');
-  $post = array(
-    'isbn' => $app->request->get('isbn'),
-    'quantity'  => $app->request->get('quantity'),
-  );
-  var_dump($app->get('/buybook')->request->get('name'););
-  return "<pre>".$app."</pre>";
-});
-*/
+
 $app->get('/cowsay', function() use($app) {
   $app['monolog']->addDebug('cowsay');
   return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";

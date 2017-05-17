@@ -1,5 +1,4 @@
-<form action="#" method="put">
-  {{ form_widget(form) }}
+<form action="/buy" method="put">
   <input type="hidden" name="isbn" value="{{ book.data.isbn }}">
   <div class="field_form_ppap">
     <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
