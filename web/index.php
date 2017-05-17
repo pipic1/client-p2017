@@ -1,8 +1,14 @@
 <?php
 
 require('../vendor/autoload.php');
+use Silex\Provider\FormServiceProvider;
 
 $app = new Silex\Application();
+<<<<<<< HEAD
+=======
+
+$app->register(new FormServiceProvider());
+>>>>>>> parent of 15004e1... destor
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
