@@ -60,12 +60,12 @@ $app->get('/books', function() use($app) {
 });
 
 $app->post('/buybook', function() use($app) {
-  $this->get('/buybook')->request->get('name');
+  $app->get('/buybook')->request->get('name');
   /*$post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
   );*/
-  var_dump($this->get('/buybook')->request->get('name'););
+  var_dump($app->get('/buybook')->request->get('name'););
   return "<pre>".$app."</pre>";
 });
 
