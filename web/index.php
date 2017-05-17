@@ -1,11 +1,9 @@
 <?php
 
 require('../vendor/autoload.php');
-use Silex\Provider\FormServiceProvider;
 
 $app = new Silex\Application();
 
-$app->register(new FormServiceProvider());
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
@@ -16,6 +14,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
+$app->register(new FormServiceProvider());
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
