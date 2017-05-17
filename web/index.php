@@ -59,6 +59,14 @@ $app->get('/books', function() use($app) {
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
 
+$app->post('/buybook', function(Request $request) use($app) {
+  $post = array(
+    'isbn' => $request->request->get('isbn'),
+    'quantity'  => $request->request->get('quantity'),
+  );
+  return $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
+});
+
 $app->get('/cowsay', function() use($app) {
   $app['monolog']->addDebug('cowsay');
   return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
