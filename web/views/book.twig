@@ -6,7 +6,7 @@
     <h1>{{ book.data.bookName }}</h1>
     <p>ISBN : {{ book.data.isbn }}</p>
     <p>Stock : {{ book.data.stock }}</p>
-    <form action="/buybook" method="post">
+    <form action="https://shopping-service-p2017.herokuapp.com/buy" method="put">
       <input type="hidden" name="isbn" value="{{ book.data.isbn }}">
       <div class="field_form_ppap">
         <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
