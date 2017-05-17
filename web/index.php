@@ -59,8 +59,8 @@ $app->get('/books', function() use($app) {
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
 
-$app->post('/buybook', function() use($app) {
-  var_dump($app["request"]);
+$app->post('/buybook', function(Request $request) use($app) {
+  var_dump($request);
   /*$post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
