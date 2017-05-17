@@ -62,6 +62,34 @@ $app->get('/books', function() use($app) {
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
 
+$app->match('/form', function (Request $request) use ($app) {
+    // some default data for when the form is displayed the first time
+    $data = array(
+        'quantity' => 'Your quantity',
+    );
+
+    $form = $app['form.factory']->createBuilder(FormType::class, $data)
+        ->add('quantity')
+        ->add('submit', SubmitType::class, [
+            'label' => 'Save',
+        ])
+        ->getForm();
+
+    $form->handleRequest($request);
+
+    if ($form->isValid()) {
+        $data = $form->getData();
+
+        // do something with the data
+
+        // redirect somewhere
+        var_dump("test");
+        return $app['twig']->render('book.twig',array('book' => $result));
+    }
+
+    // display the form
+    return $app['twig']->render('form.twig', array('form' => $form->createView()));
+});
 /*$app->post('/buybook', function() use($app) {
   $app->get('/buybook')->request->get('name');
   $post = array(

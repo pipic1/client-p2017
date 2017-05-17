@@ -1,4 +1,5 @@
-<form action="https://shopping-service-p2017.herokuapp.com/buy" method="put">
+<form action="#" method="put">
+  {{ form_widget(form) }}
   <input type="hidden" name="isbn" value="{{ book.data.isbn }}">
   <div class="field_form_ppap">
     <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
@@ -6,4 +7,4 @@
   <div class="field_form_ppap">
     <button  type="submit" name="submit"  class="btn btn-lg btn-primary green"><span class="glyphicon glyphicons-cart-tick"></span>Acheter ce livre</button>
   </div>
-</form>   
+</form>
