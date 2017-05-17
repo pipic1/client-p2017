@@ -3,7 +3,6 @@
 require('../vendor/autoload.php');
 
 $app = new Silex\Application();
-
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
@@ -14,7 +13,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
-$app->register(new Form ServiceProvider());
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
@@ -61,12 +59,13 @@ $app->get('/books', function() use($app) {
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
 
-$app->post('/buybook', function(Request $request) use($app) {
-  var_dump($request);
+$app->post('/buybook', function() use($app) {
+  $app->get('/buybook')->request->get('name');
   /*$post = array(
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
   );*/
+  var_dump($app->get('/buybook')->request->get('name'););
   return "<pre>".$app."</pre>";
 });
 
