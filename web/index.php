@@ -65,7 +65,7 @@ $app->post('/buybook', function() use($app) {
     'isbn' => $app->request->get('isbn'),
     'quantity'  => $app->request->get('quantity'),
   );*/
-  var_dump($app->get('/buybook')->request->get('name'););
+  var_dump($app->get('/buybook')->request->get('name'));
   return "<pre>".$app."</pre>";
 });
 
