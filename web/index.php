@@ -1,7 +1,9 @@
 <?php
 
 require('../vendor/autoload.php');
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 $app = new Silex\Application();
 
 $app['debug'] = true;
