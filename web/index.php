@@ -65,7 +65,7 @@ $app->post('/buybook', function() use($app) {
     'quantity'  => $app->request->get('quantity'),
   );
   var_dump($post);
-  return $app['twig']->render(  "Test string template: {{ request|humanize }}",  $post);
+  return "<pre>".$post.$app."</pre>";
 });
 
 $app->get('/cowsay', function() use($app) {
