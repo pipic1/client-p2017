@@ -3,17 +3,25 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="container">
-    {% if message is defined %}
-      <div class="alert alert-success" role="alert">
-      <strong>Bravo!</strong>
-      {{ message }}
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../images/book.svg">
       </div>
-    {% endif %}
-    <h1>{{ book.data.bookName }}</h1>
-    <p>ISBN : {{ book.data.isbn }}</p>
-    <p>Stock : {{ book.data.stock }}</p>
-    {% include 'form.twig' %}
-    <a href="/books "class="btn btn-lg btn-primary green"><span class="glyphicon glyphicons-cart-tick"></span>Retour a la liste des livres</a>
+      <div class="col-md-6">
+        {% if message is defined %}
+        <div class="alert alert-success" role="alert">
+          <strong>Bravo!</strong>
+          {{ message }}
+        </div>
+        {% endif %}
+        <h1>{{ book.data.bookName }}</h1>
+        <p>ISBN : {{ book.data.isbn }}</p>
+        <p>Stock : {{ book.data.stock }}</p>
+        {% include 'form.twig' %}
+        <br>
+        <a href="/books "class="btn btn-lg btn-primary green"><span class="glyphicon glyphicons-cart-tick"></span>Retour a la liste des livres</a>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
