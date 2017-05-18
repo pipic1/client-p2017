@@ -92,7 +92,7 @@ $app->post('/buy', function(Request $request) use($app) {
   curl_close($ch);
   $result=json_decode($result);
   var_dump($result);
-  $message = "<strong>".$message."</strong>Le livre ".$result.name." a bien été achete en ".$qte." exemplaire(s).";
+  $message = "<strong>".$message->{'message'}."</strong>Le livre ".$result->{'bookName'}." a bien été achete en ".$qte." exemplaire(s).";
   return $app['twig']->render('book.twig',array('book' => $result, 'message' => $message));
 });
 
