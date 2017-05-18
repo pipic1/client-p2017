@@ -55,7 +55,7 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   if ($httpcode === 404) {
     return $app['twig']->render('error.twig',array('message' =>  $result));
   }
-  return $app['twig']->render('book.twig',array('book' => $result));
+  return $app['twig']->render('book.twig',array('book' => $result, 'message'=>""));
 });
 
 $app->get('/books', function() use($app) {
