@@ -3,7 +3,7 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="container">
-    {% if message %}
+    {% if message is defined %}
       <div class="alert alert-success" role="alert">
       <strong>Bravo!</strong>
       {{ message }}
