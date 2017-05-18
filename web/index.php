@@ -80,7 +80,7 @@ $app->post('/buy', function(Request $request) use($app) {
   $result_buy=curl_exec($curl_buy);
   curl_close($curl_buy);
   $message = json_decode($result_buy);
-  var_dump($result_buy);
+  var_dump($message);
   //POST HEREE
   $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.$isbn;
   $ch = curl_init();
