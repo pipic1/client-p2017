@@ -71,9 +71,14 @@ $app->get('/books', function() use($app) {
 
 $app->post('/buy', function(Request $request) use($app) {
   $isbn = $request->get('isbn');
-  $test2 = $request->get('quantity');
-  var_dump($test);
-  var_dump($test2);
+  $qte = $request->get('quantity');
+  $url = 'https://shopping-service-p2017.herokuapp.com/buy?isbn='.$isbn.'&quantity='.$qte;
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_URL,$url);
+  $message=json_decode(curl_exec($ch)).message;
+  curl_close($ch);
   //POST HEREE
   $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.$isbn;
   $ch = curl_init();
@@ -84,7 +89,7 @@ $app->post('/buy', function(Request $request) use($app) {
   $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   curl_close($ch);
   $result=json_decode($result);
-  $message = "le livre a bien été achete.";
+  $message = "<strong>".$message."</strong>Le livre ".$result.name." a bien été achete en ".$qte." exemplaire(s).";
   return $app['twig']->render('book.twig',array('book' => $result, 'message' => $message));
 });
 
