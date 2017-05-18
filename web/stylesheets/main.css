@@ -47,6 +47,6 @@
   padding: 5px;
   margin: 20px;
 }
-.jumbotron .btn-primary .green,.main_btn_books{
+.jumbotron .btn-primary .green{
   background-color: rgba(0,255,0,0.3);
 }
