@@ -11,7 +11,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th></th>
+        <th>Icon</th>
         <th>Titre</th>
         <th>ISBN</th>
       </tr>
@@ -19,7 +19,7 @@
     <tbody>
       {% for key,value in books %}
       <tr>
-        <td><img src="../images/book.svg" height="42"><td>
+        <td><img src="../images/book.svg" height="25" width="25"><td>
         <td><a href="/book/{{ value.isbn }}">{{ value.bookName }}</a></td>
         <td>{{ value.isbn }}</td>
       </tr>
