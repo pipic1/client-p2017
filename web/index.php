@@ -80,7 +80,6 @@ $app->post('/buy', function(Request $request) use($app) {
   $result_buy=curl_exec($curl_buy);
   curl_close($curl_buy);
   $message = json_decode($result_buy);
-  var_dump($message);
   //POST HEREE
   $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.$isbn;
   $ch = curl_init();
@@ -91,8 +90,7 @@ $app->post('/buy', function(Request $request) use($app) {
   $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   curl_close($ch);
   $result=json_decode($result);
-  var_dump($result);
-  $message = "<strong>".$message->{'message'}."</strong>Le livre ".$result->{'bookName'}." a bien été achete en ".$qte." exemplaire(s).";
+  $message = $message->{'message'}.", le livre ".$result->{'bookName'}." a bien été achete en ".$qte." exemplaire(s).";
   return $app['twig']->render('book.twig',array('book' => $result, 'message' => $message));
 });
 
