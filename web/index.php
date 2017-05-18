@@ -68,42 +68,14 @@ $app->get('/books', function() use($app) {
   curl_close($ch);
   return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
 });
-/*
-$app->match('/form', function (Request $request) use ($app) {
-    // some default data for when the form is displayed the first time
-    $data = array(
-        'quantity' => 'Your quantity',
-    );
 
-    $form = $app['form.factory']->createBuilder(FormType::class, $data)
-        ->add('quantity')
-        ->add('submit', SubmitType::class, [
-            'label' => 'Save',
-        ])
-        ->getForm();
-
-    $form->handleRequest($request);
-
-    if ($form->isValid()) {
-        $data = $form->getData();
-
-        // do something with the data
-
-        // redirect somewhere
-        var_dump("test");
-        return $app['twig']->render('book.twig',array('book' => $result));
-    }
-
-    // display the form
-    return $app['twig']->render('form.twig', array('form' => $form->createView()));
-});*/
 $app->post('/buy', function(Request $request) use($app) {
   $test = $request->get('isbn');
   $test2 = $request->get('quantity');
   var_dump($test);
   var_dump(quantity);
   $result = "le livre a bien été achete."
-  return $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
+  $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
 });
 
 $app->get('/cowsay', function() use($app) {
