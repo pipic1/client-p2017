@@ -70,12 +70,22 @@ $app->get('/books', function() use($app) {
 });
 
 $app->post('/buy', function(Request $request) use($app) {
-  $test = $request->get('isbn');
+  $isbn = $request->get('isbn');
   $test2 = $request->get('quantity');
   var_dump($test);
-  var_dump(quantity);
-  $result = "le livre a bien été achete.";
-  return $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
+  var_dump($test2);
+  //POST HEREE
+  $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.$isbn;
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_URL,$url);
+  $result=curl_exec($ch);
+  $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+  $result=json_decode($result);
+  $message = "le livre a bien été achete.";
+  return $app['twig']->render('book.twig',array('book' => $result, 'message' => $message));
 });
 
 $app->get('/cowsay', function() use($app) {
