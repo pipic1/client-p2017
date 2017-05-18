@@ -74,8 +74,8 @@ $app->post('/buy', function(Request $request) use($app) {
   $test2 = $request->get('quantity');
   var_dump($test);
   var_dump(quantity);
-  $result = "le livre a bien été achete."
-  $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
+  $result = "le livre a bien été achete.";
+  return $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
 });
 
 $app->get('/cowsay', function() use($app) {
