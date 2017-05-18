@@ -72,13 +72,13 @@ $app->get('/books', function() use($app) {
 $app->post('/buy', function(Request $request) use($app) {
   $isbn = $request->get('isbn');
   $qte = $request->get('quantity');
-  $url = 'https://shopping-service-p2017.herokuapp.com/buy?isbn='.$isbn.'&quantity='.$qte;
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_URL,$url);
-  $message=json_decode(curl_exec($ch)).message;
-  curl_close($ch);
+  $url_buy = 'https://shopping-service-p2017.herokuapp.com/buy?isbn='.$isbn.'&quantity='.$qte;
+  $curl_buy = curl_init();
+  curl_setopt($curl_buy, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($curl_buy, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($curl_buy, CURLOPT_URL,$url_buy);
+  $message=json_decode(curl_exec($curl_buy));
+  curl_close($curl_buy);
   //POST HEREE
   $url = 'https://shopping-service-p2017.herokuapp.com/book?isbn='.$isbn;
   $ch = curl_init();
