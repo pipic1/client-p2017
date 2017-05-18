@@ -12,9 +12,8 @@
     <h1>{{ book.data.bookName }}</h1>
     <p>ISBN : {{ book.data.isbn }}</p>
     <p>Stock : {{ book.data.stock }}</p>
-
-
     {% include 'form.twig' %}
+    <a href="/books "class="btn btn-lg btn-primary green"><span class="glyphicon glyphicons-cart-tick"></span>Retour a la liste des livres</a>
   </div>
 </div>
 {% endblock %}
