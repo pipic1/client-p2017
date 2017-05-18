@@ -3,13 +3,13 @@
   color: white;
   padding-bottom: 80px;
 }
-.jumbotron .btn-primary {
+.jumbotron .btn-primary, .main_btn_books {
   background: rgba(0,0,0,0.3);
   border-color: rgba(0,0,0,0.3);
   box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
   transition: .25s all ease-in;
 }
-.jumbotron .btn-primary:hover {
+.jumbotron .btn-primary:hover, .main_btn_books {
   background: rgba(0,255,0,0.6);
 }
 .jumbotron p {
@@ -47,6 +47,6 @@
   padding: 5px;
   margin: 20px;
 }
-.jumbotron .btn-primary .green{
+.jumbotron .btn-primary .green,.main_btn_books{
   background-color: rgba(0,255,0,0.3);
 }
