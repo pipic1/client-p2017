@@ -35,7 +35,9 @@ $app->get('/book_sample', function() use($app) {
   curl_setopt($ch, CURLOPT_URL,$url);
   $result=curl_exec($ch);
   curl_close($ch);
-  return $app['twig']->render('book.twig',array('book' => json_decode($result) ));
+  $result=json_decode($result);
+  $current_book = $result;
+  return $app['twig']->render('book.twig',array('book' => $result));
 });
 
 $app->get('/book/{isbn}', function($isbn) use($app) {
@@ -101,7 +103,7 @@ $app->post('/buy', function(Request $request) use($app) {
   var_dump($test);
   var_dump(quantity);
   $result = "le livre a bien été achete."
-  return $app['twig']->render('book.twig',array('book' => json_decode($current_book), 'message' => $result));
+  return $app['twig']->render('book.twig',array('book' => $current_book, 'message' => $result));
 });
 
 $app->get('/cowsay', function() use($app) {
