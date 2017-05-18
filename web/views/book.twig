@@ -3,9 +3,17 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="container">
+    {% if message %}
+      <div class="alert alert-success" role="alert">
+      <strong>Bravo!</strong>
+      {{ message }}
+      </div>
+    {% endif %}
     <h1>{{ book.data.bookName }}</h1>
     <p>ISBN : {{ book.data.isbn }}</p>
     <p>Stock : {{ book.data.stock }}</p>
+
+
     {% include 'form.twig' %}
   </div>
 </div>

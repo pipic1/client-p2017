@@ -5,8 +5,9 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-$app = new Silex\Application();
 
+$current_book = null;
+$app = new Silex\Application();
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
@@ -48,6 +49,7 @@ $app->get('/book/{isbn}', function($isbn) use($app) {
   $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   curl_close($ch);
   $result=json_decode($result);
+  $current_book = $result;
   if ($httpcode === 404) {
     return $app['twig']->render('error.twig',array('message' =>  $result));
   }
@@ -95,8 +97,11 @@ $app->match('/form', function (Request $request) use ($app) {
 });*/
 $app->post('/buy', function(Request $request) use($app) {
   $test = $request->get('isbn');
+  $test2 = $request->get('quantity');
   var_dump($test);
-  return $app['twig']->render('books.twig',array('books' => json_decode($result) ));
+  var_dump(quantity);
+  $result = "le livre a bien été achete."
+  return $app['twig']->render('book.twig',array('book' => json_decode($current_book), 'message' => $result));
 });
 
 $app->get('/cowsay', function() use($app) {

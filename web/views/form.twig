@@ -1,7 +1,7 @@
 <form action="/buy" method="post">
   <input type="hidden" name="isbn" value="{{ book.data.isbn }}">
   <div class="field_form_ppap">
-    <input name="quantity" type="number" class="input-number-ppap" pattern="[0-9]*">
+    <input name="quantity" type="number" required class="input-number-ppap" pattern="[0-9]*">
   </div>
   <div class="field_form_ppap">
     <button  type="submit" name="submit"  class="btn btn-lg btn-primary green"><span class="glyphicon glyphicons-cart-tick"></span>Acheter ce livre</button>
