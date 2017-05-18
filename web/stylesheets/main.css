@@ -9,7 +9,7 @@
   box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
   transition: .25s all ease-in;
 }
-.jumbotron .btn-primary:hover, .main_btn_books {
+.jumbotron .btn-primary:hover, .main_btn_books:hover {
   background: rgba(0,255,0,0.6);
 }
 .jumbotron p {
